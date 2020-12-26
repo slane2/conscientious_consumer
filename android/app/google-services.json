@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "244722332659",
+    "project_id": "conscientious-consumer",
+    "storage_bucket": "conscientious-consumer.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:244722332659:android:60c4a8cdd933ef7df91886",
+        "android_client_info": {
+          "package_name": "com.example.the_conscientious_consumer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "244722332659-i9umujjjk7lpc7ecj6bov6kshcnn1lh7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMPxA7Zyhrj7u4jAi4SjVWDGTiRlezX4I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "244722332659-i9umujjjk7lpc7ecj6bov6kshcnn1lh7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
