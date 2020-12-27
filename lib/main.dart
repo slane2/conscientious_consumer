@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'screens/form_hub.dart';
 
 const mainColor = Color(0XFF2979FF);
 
@@ -13,9 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'The Conscientious Consumer',
       theme: ThemeData(
-
         primaryColor: mainColor,
-
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: MyHomePage(title: 'The Conscientious Consumer'),
@@ -37,23 +36,40 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _incrementCounter() {
     setState(() {
-
       _counter++;
     });
   }
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
-
         title: Text(widget.title),
       ),
+      drawer: new Drawer(
+        child: ListView(
+          children: <Widget>[
+            new UserAccountsDrawerHeader(
+              accountName: new Text('Shayla Lane'),
+              accountEmail: new Text('test@test.com'),
+              currentAccountPicture: new CircleAvatar(
+                backgroundImage: new AssetImage('assets/redhair.jpg'),
+              ),
+            ),
+            new ListTile(
+              title: Text('Submit Data'),
+              onTap: () {
+                Navigator.push(
+                    context,
+                    new MaterialPageRoute(
+                        builder: (BuildContext context) => new FormHub()));
+              }
+            ),
+          ],
+        ),
+      ),
       body: Center(
-
         child: Column(
-
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
