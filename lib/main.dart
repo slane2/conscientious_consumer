@@ -60,9 +60,20 @@ class _MyHomePageState extends State<MyHomePage> {
               title: Text('Submit Data'),
               onTap: () {
                 Navigator.push(
-                    context,
-                    new MaterialPageRoute(
-                        builder: (BuildContext context) => new FormHub()));
+                  context,
+                  new MaterialPageRoute(
+                    builder: (BuildContext context) => new FormHub())
+                );
+              }
+            ),
+            new ListTile(
+              title: Text('Bills'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  new MaterialPageRoute(
+                    builder: (BuildContext context) => new FormHub())
+                );
               }
             ),
           ],
