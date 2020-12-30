@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'screens/form_hub.dart';
+import 'screens/bills.dart';
 
 const mainColor = Color(0XFF2979FF);
 
@@ -57,25 +58,21 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             new ListTile(
-              title: Text('Submit Data'),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  new MaterialPageRoute(
-                    builder: (BuildContext context) => new FormHub())
-                );
-              }
-            ),
+                title: Text('Submit Data'),
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      new MaterialPageRoute(
+                          builder: (BuildContext context) => new FormHub()));
+                }),
             new ListTile(
-              title: Text('Bills'),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  new MaterialPageRoute(
-                    builder: (BuildContext context) => new FormHub())
-                );
-              }
-            ),
+                title: Text('Bills'),
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      new MaterialPageRoute(
+                          builder: (BuildContext context) => new Bills()));
+                }),
           ],
         ),
       ),
