@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
 import 'screens/form_hub.dart';
 import 'screens/bills.dart';
+import 'screens/user_form.dart';
+import 'firebase.dart';
+import 'package:firebase_core/firebase_core.dart';
+
+
 
 
 const mainColor = Color(0XFF2979FF);
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
@@ -73,6 +80,14 @@ class _MyHomePageState extends State<MyHomePage> {
                       context,
                       new MaterialPageRoute(
                           builder: (BuildContext context) => new Bills()));
+                }),
+            new ListTile(
+                title: Text('Login'),
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      new MaterialPageRoute(
+                          builder: (BuildContext context) => new UserForm()));
                 }),
           ],
         ),

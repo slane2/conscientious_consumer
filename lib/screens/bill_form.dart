@@ -119,7 +119,7 @@ class _BillFormState extends State<BillForm> {
                     }),
                 SizedBox(height: 10),
                 RaisedButton(
-                    onPressed: () {
+                    onPressed: () async {
                       if (formKey.currentState.validate()) {
                         formKey.currentState.save();
                         Navigator.of(context).pop();

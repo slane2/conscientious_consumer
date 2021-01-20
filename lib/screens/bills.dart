@@ -17,7 +17,7 @@ class _BillsState extends State<Bills> {
     return Scaffold(
       appBar: AppBar(title: Text('Ethical Manufacturing Bills')),
       body: StreamBuilder(
-          stream: Firestore.instance.collection('bills').snapshots(),
+          stream: FirebaseFirestore.instance.collection('bills').snapshots(),
           builder: (content, snapshot) {
             if (snapshot.hasData) {
               return Material(
