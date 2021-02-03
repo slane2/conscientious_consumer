@@ -38,6 +38,8 @@ class _RegisterState extends State<Register> {
             child: Column(children: <Widget>[
               SizedBox(height: 20.0),
               TextFormField(
+                decoration: InputDecoration(
+                    labelText: 'Email', border: OutlineInputBorder()),
                 validator: (val) => val.isEmpty ? 'Enter an email' : null,
                 onChanged: (val) {
                   setState(() => email = val);
@@ -45,6 +47,8 @@ class _RegisterState extends State<Register> {
               ),
               SizedBox(height: 20.0),
               TextFormField(
+                  decoration: InputDecoration(
+                      labelText: 'Password', border: OutlineInputBorder()),
                   validator: (val) =>
                       val.length < 6 ? 'Enter a password 6+ chars long' : null,
                   obscureText: true,
