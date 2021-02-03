@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import '../models/bill.dart';
+import '../shared/constants.dart';
+
 
 class BillFields {
   String name;
@@ -31,8 +33,7 @@ class _BillFormState extends State<BillForm> {
               children: [
               TextFormField(
                   autofocus: true,
-                  decoration: InputDecoration(
-                      labelText: 'Bill Name', border: OutlineInputBorder()),
+                  decoration: textInputDecoration.copyWith(hintText: 'Bill Name'),
                   onSaved: (value) {
                     bill.name = value;
                   },
@@ -45,9 +46,7 @@ class _BillFormState extends State<BillForm> {
                   }),
                 TextFormField(
                     autofocus: true,
-                    decoration: InputDecoration(
-                        labelText: 'Bill Description',
-                        border: OutlineInputBorder()),
+                    decoration: textInputDecoration.copyWith(hintText: 'Description'),
                     onSaved: (value) {
                       bill.description = value;
                     },
@@ -60,8 +59,7 @@ class _BillFormState extends State<BillForm> {
                     }),
                 TextFormField(
                     autofocus: true,
-                    decoration: InputDecoration(
-                        labelText: 'Name of Source (eg Congress.gov)',
+                    decoration: textInputDecoration.copyWith(hintText: 'Source Name'),
                         border: OutlineInputBorder()),
                     onSaved: (value) {
                       bill.source_name = value;
@@ -75,9 +73,7 @@ class _BillFormState extends State<BillForm> {
                     }),
                 TextFormField(
                     autofocus: true,
-                    decoration: InputDecoration(
-                        labelText: 'URL of Source',
-                        border: OutlineInputBorder()),
+                    decoration: textInputDecoration.copyWith(hintText: 'Source URL'),
                     onSaved: (value) {
                       bill.source_url = value;
                     },
@@ -90,8 +86,7 @@ class _BillFormState extends State<BillForm> {
                     }),
                 TextFormField(
                     autofocus: true,
-                    decoration: InputDecoration(
-                        labelText: 'Year(s)', border: OutlineInputBorder()),
+                    decoration: textInputDecoration.copyWith(hintText: 'Year(s)'),
                     onSaved: (value) {
                       bill.year = value;
                     },
@@ -104,9 +99,7 @@ class _BillFormState extends State<BillForm> {
                     }),
                 TextFormField(
                     autofocus: true,
-                    decoration: InputDecoration(
-                        labelText: 'Was the bill passed',
-                        border: OutlineInputBorder()),
+                    decoration: textInputDecoration.copyWith(hintText: 'Did the Bill Pass?'),
                     onSaved: (value) {
                       bill.passed = value;
                     },
