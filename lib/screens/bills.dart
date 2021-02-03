@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-
+import 'bill_screen.dart';
 
 class Bills extends StatefulWidget {
   @override
@@ -22,13 +22,22 @@ class _BillsState extends State<Bills> {
             if (snapshot.hasData) {
               return Material(
                 child: ListView.builder(
-                itemCount: snapshot.data.documents.length,
-                itemBuilder: (context, index) {
-                  var bill = snapshot.data.documents[index];
-                  return ListTile(
-                    leading: Image.asset('./assets/animal.png'), title: Text(bill['name'])
-                  );
-                },
+                  itemCount: snapshot.data.documents.length,
+                  itemBuilder: (context, index) {
+                    var bill = snapshot.data.documents[index];
+                    return ListTile(
+                      leading: Image.asset('./assets/animal.png'),
+                      title: Text(bill['name']),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => BillScreen(),
+                          ),
+                        );
+                      },
+                    );
+                  },
                 ),
               );
             } else {
@@ -40,6 +49,6 @@ class _BillsState extends State<Bills> {
 }
 
 String formatDate(Timestamp date) {
-    DateTime dateTime = date.toDate();
-    return "${dateTime.month.toString()}-${dateTime.day.toString().padLeft(2,'0')}-${dateTime.year.toString().padLeft(2,'0')}";
+  DateTime dateTime = date.toDate();
+  return "${dateTime.month.toString()}-${dateTime.day.toString().padLeft(2, '0')}-${dateTime.year.toString().padLeft(2, '0')}";
 }
