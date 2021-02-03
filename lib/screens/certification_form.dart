@@ -3,151 +3,140 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import '../models/certification.dart';
 import '../shared/constants.dart';
 
-class BillFields {
+class CertificationFields {
   String name;
   String description;
-  String source_name;
+  String logo;
   String source_url;
-  String year;
-  String passed;
+  String criteria;
+  bool promise;
+  bool questionairre;
+  bool audit;
+  bool transparent;
+  bool conflict;
 }
 
-class BillForm extends StatefulWidget {
+class CertificationForm extends StatefulWidget {
   @override
-  _BillFormState createState() => _BillFormState();
+  _CertificationFormState createState() => _CertificationFormState();
 }
 
-class _BillFormState extends State<BillForm> {
+class _CertificationFormState extends State<CertificationForm> {
   final formKey = GlobalKey<FormState>();
-  final bill = BillFields();
+  final Certification = CertificationFields();
 
   @override
   Widget build(BuildContext context) {
     return StreamBuilder(
-        stream: FirebaseFirestore.instance.collection('bills').snapshots(),
+        stream:
+            FirebaseFirestore.instance.collection('Certifications').snapshots(),
         builder: (content, snapshot) {
-            return Material(
-              child: Padding(
-                  padding: const EdgeInsets.all(10),
-                  child: Form(
-                    key: formKey,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        TextFormField(
-                            autofocus: true,
-                            decoration: textInputDecoration.copyWith(
-                                hintText: 'Bill Name'),
-                            onSaved: (value) {
-                              bill.name = value;
-                            },
-                            validator: (value) {
-                              if (value.isEmpty) {
-                                return 'Please enter the name of the bill';
-                              } else {
-                                return null;
-                              }
-                            }),
-                        TextFormField(
-                            autofocus: true,
-                            decoration: textInputDecoration.copyWith(
-                                hintText: 'Description'),
-                            onSaved: (value) {
-                              bill.description = value;
-                            },
-                            validator: (value) {
-                              if (value.isEmpty) {
-                                return 'Please enter a description of the bill';
-                              } else {
-                                return null;
-                              }
-                            }),
-                        TextFormField(
-                            autofocus: true,
-                            decoration: textInputDecoration.copyWith(
-                                hintText: 'Source Name'),
-                            onSaved: (value) {
-                              bill.source_name = value;
-                            },
-                            validator: (value) {
-                              if (value.isEmpty) {
-                                return 'Please enter the name of the source';
-                              } else {
-                                return null;
-                              }
-                            }),
-                        TextFormField(
-                            autofocus: true,
-                            decoration: textInputDecoration.copyWith(
-                                hintText: 'Source URL'),
-                            onSaved: (value) {
-                              bill.source_url = value;
-                            },
-                            validator: (value) {
-                              if (value.isEmpty) {
-                                return 'Please enter the URL of the source';
-                              } else {
-                                return null;
-                              }
-                            }),
-                        TextFormField(
-                            autofocus: true,
-                            decoration: textInputDecoration.copyWith(
-                                hintText: 'Year(s)'),
-                            onSaved: (value) {
-                              bill.year = value;
-                            },
-                            validator: (value) {
-                              if (value.isEmpty) {
-                                return 'Please enter the year or years that the bill was considered';
-                              } else {
-                                return null;
-                              }
-                            }),
-                        TextFormField(
-                            autofocus: true,
-                            decoration: textInputDecoration.copyWith(
-                                hintText: 'Did the Bill Pass?'),
-                            onSaved: (value) {
-                              bill.passed = value;
-                            },
-                            validator: (value) {
-                              if (value.isEmpty) {
-                                return 'Please enter whether the bill was passed';
-                              } else {
-                                return null;
-                              }
-                            }),
-                        SizedBox(height: 10),
-                        RaisedButton(
+          return Material(
+            child: Padding(
+                padding: const EdgeInsets.all(10),
+                child: Form(
+                  key: formKey,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      TextFormField(
+                          autofocus: true,
+                          decoration: textInputDecoration.copyWith(
+                              hintText: 'Certification Name'),
+                          onSaved: (value) {
+                            Certification.name = value;
+                          },
+                          validator: (value) {
+                            if (value.isEmpty) {
+                              return 'Please enter the name of the Certification';
+                            } else {
+                              return null;
+                            }
+                          }),
+                      TextFormField(
+                          autofocus: true,
+                          decoration: textInputDecoration.copyWith(
+                              hintText: 'Description'),
+                          onSaved: (value) {
+                            Certification.description = value;
+                          },
+                          validator: (value) {
+                            if (value.isEmpty) {
+                              return 'Please enter a description of the Certification';
+                            } else {
+                              return null;
+                            }
+                          }),
+                      TextFormField(
+                          autofocus: true,
+                          decoration: textInputDecoration.copyWith(
+                              hintText: 'URL of the Certification Logo'),
+                          onSaved: (value) {
+                            Certification.logo = value;
+                          },
+                          validator: (value) {
+                            if (value.isEmpty) {
+                              return 'Please enter the URL of the Certification Logo';
+                            } else {
+                              return null;
+                            }
+                          }),
+                      TextFormField(
+                          autofocus: true,
+                          decoration: textInputDecoration.copyWith(
+                              hintText: 'Source URL'),
+                          onSaved: (value) {
+                            Certification.source_url = value;
+                          },
+                          validator: (value) {
+                            if (value.isEmpty) {
+                              return 'Please enter the URL of the source';
+                            } else {
+                              return null;
+                            }
+                          }),
+                      TextFormField(
+                          autofocus: true,
+                          decoration:
+                              textInputDecoration.copyWith(hintText: 'Criteria'),
+                          onSaved: (value) {
+                            Certification.year = value;
+                          },
+                          validator: (value) {
+                            if (value.isEmpty) {
+                              return 'Please enter a brief description of the criteria for this certification';
+                            } else {
+                              return null;
+                            }
+                          }),
+                      SizedBox(height: 10),
+                      RaisedButton(
                           onPressed: () async {
                             if (formKey.currentState.validate()) {
                               // formKey.currentState.save();
                               // Navigator.of(context).pop();
                               FirebaseFirestore.instance
-                                  .collection('bills')
+                                  .collection('Certifications')
                                   .add({
-                                'name': bill.name,
-                                'description': bill.description,
-                                'source_name': bill.source_name,
-                                'source_url': bill.source_url,
-                                'year': bill.year,
-                                'passed': bill.passed
+                                'name': Certification.name,
+                                'description': Certification.description,
+                                'source_name': Certification.logo,
+                                'source_url': Certification.source_url,
+                                'year': Certification.criteria
                               });
                             }
                           },
-                          child: Text('Save Entry')
-                        ),
-                        ElevatedButton(
-                          child: Text('Back'),
-                          onPressed: () {
-                            Navigator.pop(context);
-                          }, 
-                        ),
-                      ],
-                    ),
-                  )),
-            );
+                          child: Text('Save Entry')),
+                      ElevatedButton(
+                        child: Text('Back'),
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                      ),
+                    ],
+                  ),
+                )),
+          );
         });
   }
 }
