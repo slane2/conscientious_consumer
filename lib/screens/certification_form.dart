@@ -100,7 +100,7 @@ class _CertificationFormState extends State<CertificationForm> {
                           decoration:
                               textInputDecoration.copyWith(hintText: 'Criteria'),
                           onSaved: (value) {
-                            Certification.year = value;
+                            Certification.criteria = value;
                           },
                           validator: (value) {
                             if (value.isEmpty) {

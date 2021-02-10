@@ -1,13 +1,12 @@
-
 class Bill {
-  String name;
-  String description;
-  String source_name;
-  String source_url;
-  String year;
-  String passed;
+  String name = 'Hello';
+  String description = '';
+  String source_name = '';
+  String source_url = '';
+  String year = '';
+  String passed = '';
 
-    Bill({
+  Bill({
     this.name,
     this.description,
     this.source_name,
@@ -17,8 +16,17 @@ class Bill {
   });
 
   factory Bill.fromJSON(Map<String, dynamic> json) {
-    return Bill(name: json['name'], description: json['description'], source_name: json['source_name'], 
-    source_url: json['source_url'], year: json['year'], passed: json['pass']);
+    return Bill(
+        name: json['name'],
+        description: json['description'],
+        source_name: json['source_name'],
+        source_url: json['source_url'],
+        year: json['year'],
+        passed: json['pass']);
+  }
+
+  void addName(String bill_name) {
+    name = bill_name;
   }
 
   String toString() {
