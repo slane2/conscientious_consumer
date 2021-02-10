@@ -1,14 +1,14 @@
 class Certification {
-  String name;
-  String description;
-  String logo;
-  String source_url;
-  String criteria;
-  bool promise;
-  bool questionairre;
-  bool audit;
-  bool transparent;
-  bool conflict;
+  String name = '';
+  String description = '';
+  String logo = '';
+  String source_url = '';
+  String criteria = '';
+  bool promise = false;
+  bool questionairre = false;
+  bool audit = false;
+  bool transparent = false;
+  bool conflict = false;
 
   Certification(
       {this.name,
