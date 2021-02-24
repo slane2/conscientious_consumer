@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../bill_screen.dart';
+import '../../widgets/star_rating.dart';
 
 class Certifications extends StatefulWidget {
   @override
@@ -9,9 +10,6 @@ class Certifications extends StatefulWidget {
 }
 
 class _CertificationsState extends State<Certifications> {
-  File image;
-  Future getImage() async {}
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,8 +24,8 @@ class _CertificationsState extends State<Certifications> {
                   itemBuilder: (context, index) {
                     var certification = snapshot.data.documents[index];
                     return ListTile(
-                      leading: Image.asset('./assets/animal.png'),
                       title: Text(certification['name']),
+                      trailing: StarRating(value: certification['rating']),
                       onTap: () {
                         Navigator.push(
                           context,

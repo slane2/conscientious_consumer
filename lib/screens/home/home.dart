@@ -3,6 +3,7 @@ import '../user_form.dart';
 import '../form_hub.dart';
 import '../list_views/bills.dart';
 import '../../services/auth.dart';
+import '../list_views/certifications.dart';
 
 class Home extends StatefulWidget {
   Home({Key key, this.title}) : super(key: key);
@@ -54,6 +55,15 @@ class _HomeState extends State<Home> {
                       context,
                       new MaterialPageRoute(
                           builder: (BuildContext context) => new Bills()));
+                }),
+            new ListTile(
+                title: Text('Certifications'),
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      new MaterialPageRoute(
+                          builder: (BuildContext context) =>
+                              new Certifications()));
                 }),
             new ListTile(
                 title: Text('Login'),

@@ -2,7 +2,6 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../bill_screen.dart';
-import '../../widgets/star_rating.dart';
 
 class Bills extends StatefulWidget {
   @override
@@ -24,9 +23,8 @@ class _BillsState extends State<Bills> {
                   itemBuilder: (context, index) {
                     var bill = snapshot.data.documents[index];
                     return ListTile(
-                      // leading: Image.asset('./assets/animal.png'),
+                      leading: Image.asset('./assets/animal.png'),
                       title: Text(bill['name']),
-                      trailing: StarRating(value: 2),
                       onTap: () {
                         Navigator.push(
                           context,
