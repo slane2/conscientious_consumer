@@ -8,7 +8,7 @@ class Certification {
   bool questionairre = false;
   bool audit = false;
   bool transparent = false;
-  bool conflict = false;
+  bool conflict_free = false;
 
   Certification(
       {this.name,
@@ -20,7 +20,7 @@ class Certification {
       this.questionairre,
       this.audit,
       this.transparent,
-      this.conflict});
+      this.conflict_free});
 
   factory Certification.fromJSON(Map<String, dynamic> json) {
     return Certification(
@@ -33,7 +33,7 @@ class Certification {
         questionairre: json['questionairre'],
         audit: json['audit'],
         transparent: json['transparent'],
-        conflict: json['conflict']);
+        conflict_free: json['conflict_free']);
   }
 
   String toString() {
