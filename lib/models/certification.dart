@@ -42,4 +42,12 @@ class Certification {
   String toString() {
     return 'Name: $name  ||  Description: $description';
   }
+
+  void rate() {
+    if (promise) rating += 1;
+    if (audit) rating += 1;
+    if (conflict_free) rating += 1;
+    if (transparent) rating += 1;
+    if (questionairre) rating += 1;
+  }
 }
