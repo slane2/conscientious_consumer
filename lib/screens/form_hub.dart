@@ -35,6 +35,15 @@ class _FormHubState extends State<FormHub> {
               child: Text('Certification Form'),
             ),
             ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => CertificationForm()),
+                );
+              },
+              child: Text('Certification Form'),
+            ),
+            ElevatedButton(
               child: Text('Back'),
               onPressed: () {
                 Navigator.pop(context);
