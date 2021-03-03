@@ -10,11 +10,11 @@ class CertificationFields {
   String logo;
   String source_url;
   String criteria;
-  bool promise;
-  bool questionairre;
-  bool audit;
-  bool transparent;
-  bool conflict_free;
+  bool promise = false;
+  bool questionairre = false;
+  bool audit = false;
+  bool transparent = false;
+  bool conflict_free = false;
   int rating;
 }
 
@@ -177,11 +177,16 @@ class _CertificationFormState extends State<CertificationForm> {
                         RaisedButton(
                             onPressed: () async {
                               certification.rating = 0;
-                              if (certification.promise) certification.rating += 1;
-                              if (certification.audit) certification.rating += 1;
-                              if (certification.conflict_free) certification.rating += 1;
-                              if (certification.transparent) certification.rating += 1;
-                              if (certification.questionairre) certification.rating += 1;
+                              if (certification.promise)
+                                certification.rating += 1;
+                              if (certification.audit)
+                                certification.rating += 1;
+                              if (certification.conflict_free)
+                                certification.rating += 1;
+                              if (certification.transparent)
+                                certification.rating += 1;
+                              if (certification.questionairre)
+                                certification.rating += 1;
                               if (formKey.currentState.validate()) {
                                 formKey.currentState.save();
                                 await FirebaseFirestore.instance
