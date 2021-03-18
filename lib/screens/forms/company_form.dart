@@ -8,12 +8,13 @@ class CompanyFields {
   String name;
   String description;
   String logo;
-  List certifications = List(27);
   String parent;
   String address;
   String phone_number;
   String website;
   int rating;
+  bool checked = false;
+  List<String> certs = [];
 }
 
 class CompanyForm extends StatefulWidget {
@@ -102,6 +103,36 @@ class _CompanyFormState extends State<CompanyForm> {
                                 return null;
                               }
                             }),
+                        CheckboxListTile(
+                            title: const Text('Leaping Bunny'),
+                            secondary: Image.asset('./assets/animal.png'),
+                            value: company.checked,
+                            onChanged: (bool value) {
+                              setState(() {
+                                company.checked = value;
+                                company.certs.add('Leaping Bunny');
+                              });
+                            }),
+                        CheckboxListTile(
+                            title: const Text('Cruelty Free PETA'),
+                            secondary: Image.asset('./assets/animal.png'),
+                            value: company.checked,
+                            onChanged: (bool value) {
+                              setState(() {
+                                company.checked = value;
+                                company.certs.add('Cruelty Free PETA');
+                              });
+                            }),
+                        CheckboxListTile(
+                            title: const Text('Cradle to Cradle'),
+                            secondary: Image.asset('./assets/planet.png'),
+                            value: company.checked,
+                            onChanged: (bool value) {
+                              setState(() {
+                                company.checked = value;
+                                company.certs.add('Cradle to Cradle');
+                              });
+                            }),
                         SizedBox(height: 10),
                         RaisedButton(
                             onPressed: () async {
@@ -115,7 +146,9 @@ class _CompanyFormState extends State<CompanyForm> {
                                   'address': company.logo,
                                   'parent': company.parent,
                                   'website': company.website,
-                                  'rating': company.rating
+                                  'rating': company.rating,
+                                  'checked': company.checked,
+                                  'certs': company.certs
                                 });
                                 Navigator.push(
                                     context,

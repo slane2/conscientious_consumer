@@ -5,7 +5,6 @@ import 'package:provider/provider.dart';
 // import 'screens/user_form.dart';
 // import 'firebase.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:provider/provider.dart';
 import 'package:the_conscientious_consumer/services/auth.dart';
 import 'screens/wrapper.dart';
 import 'models/client.dart';

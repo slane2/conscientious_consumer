@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'forms/bill_form.dart';
 import 'forms/certification_form.dart';
+import 'forms/company_form.dart';
 
 class FormHub extends StatefulWidget {
   @override
@@ -29,10 +30,10 @@ class _FormHubState extends State<FormHub> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => CertificationForm()),
+                  MaterialPageRoute(builder: (context) => CompanyForm()),
                 );
               },
-              child: Text('Certification Form'),
+              child: Text('Company Form'),
             ),
             ElevatedButton(
               onPressed: () {

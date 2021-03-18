@@ -5,17 +5,18 @@ import 'form_hub.dart';
 import 'user_form.dart';
 import '../services/auth.dart';
 import '../models/bill.dart';
+import '../screens/forms/bill_form.dart';
 
 class BillScreen extends StatelessWidget {
   final AuthService _auth = AuthService();
-  final Bill bill;
+  final QueryDocumentSnapshot bill;
 
   BillScreen({Key key, @required this.bill}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(bill.name), actions: <Widget>[
+      appBar: AppBar(title: Text("Bills"), actions: <Widget>[
         FlatButton.icon(
           icon: Icon(Icons.person),
           label: Text('Logout'),

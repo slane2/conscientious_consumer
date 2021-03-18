@@ -13,7 +13,7 @@ class _CompaniesState extends State<Companies> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Ethical companies')),
+      appBar: AppBar(title: Text('Ethical Companies')),
       body: StreamBuilder(
           stream: FirebaseFirestore.instance.collection('companies').snapshots(),
           builder: (content, snapshot) {
@@ -25,7 +25,7 @@ class _CompaniesState extends State<Companies> {
                     var company = snapshot.data.documents[index];
                     return ListTile(
                       title: Text(company['name']),
-                      trailing: StarRating(value: company['rating']),
+                      trailing: StarRating(value: 4),
                       onTap: () {
                         Navigator.push(
                           context,
