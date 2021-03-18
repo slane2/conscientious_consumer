@@ -4,6 +4,14 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import '../../shared/constants.dart';
 import '../list_views/companies.dart';
 
+var all_certs = [
+  'Leaping Bunny',
+  'Cruelty Free PETA',
+  'Cradle to Cradle',
+  'Made in a country where animal testing is illegal.',
+  'Equal Salary Certified'
+];
+
 class CompanyFields {
   String name;
   String description;
@@ -37,7 +45,7 @@ class _CompanyFormState extends State<CompanyForm> {
                 child: Form(
                   key: formKey,
                   child: SingleChildScrollView(
-                    child: Column(
+                                      child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         TextFormField(
@@ -91,8 +99,8 @@ class _CompanyFormState extends State<CompanyForm> {
                             }),
                         TextFormField(
                             autofocus: true,
-                            decoration: textInputDecoration.copyWith(
-                                hintText: 'website'),
+                            decoration:
+                                textInputDecoration.copyWith(hintText: 'website'),
                             onSaved: (value) {
                               company.website = value;
                             },
@@ -103,35 +111,51 @@ class _CompanyFormState extends State<CompanyForm> {
                                 return null;
                               }
                             }),
-                        CheckboxListTile(
-                            title: const Text('Leaping Bunny'),
-                            secondary: Image.asset('./assets/animal.png'),
-                            value: company.checked,
-                            onChanged: (bool value) {
-                              setState(() {
-                                company.checked = value;
-                                company.certs.add('Leaping Bunny');
-                              });
-                            }),
-                        CheckboxListTile(
-                            title: const Text('Cruelty Free PETA'),
-                            secondary: Image.asset('./assets/animal.png'),
-                            value: company.checked,
-                            onChanged: (bool value) {
-                              setState(() {
-                                company.checked = value;
-                                company.certs.add('Cruelty Free PETA');
-                              });
-                            }),
-                        CheckboxListTile(
-                            title: const Text('Cradle to Cradle'),
-                            secondary: Image.asset('./assets/planet.png'),
-                            value: company.checked,
-                            onChanged: (bool value) {
-                              setState(() {
-                                company.checked = value;
-                                company.certs.add('Cradle to Cradle');
-                              });
+                        // CheckboxListTile(
+                        //     title: const Text('Leaping Bunny'),
+                        //     secondary: Image.asset('./assets/animal.png'),
+                        //     value: company.checked,
+                        //     onChanged: (bool value) {
+                        //       setState(() {
+                        //         company.checked = value;
+                        //         company.certs.add('Leaping Bunny');
+                        //       });
+                        //     }),
+                        // CheckboxListTile(
+                        //     title: const Text('Cruelty Free PETA'),
+                        //     secondary: Image.asset('./assets/animal.png'),
+                        //     value: company.checked,
+                        //     onChanged: (bool value) {
+                        //       setState(() {
+                        //         company.checked = value;
+                        //         company.certs.add('Cruelty Free PETA');
+                        //       });
+                        //     }),
+                        // CheckboxListTile(
+                        //     title: const Text('Cradle to Cradle'),
+                        //     secondary: Image.asset('./assets/planet.png'),
+                        //     value: company.checked,
+                        //     onChanged: (bool value) {
+                        //       setState(() {
+                        //         company.checked = value;
+                        //         company.certs.add('Cradle to Cradle');
+                        //       });
+                        //     }),
+                        ListView.builder(
+                            shrinkWrap: true,
+                            itemCount: all_certs.length,
+                            itemBuilder: (context, index) {
+                              var cert = all_certs[index];
+                              return CheckboxListTile(
+                                  title: Text("'$cert'"),
+                                  secondary: Image.asset('./assets/planet.png'),
+                                  value: company.checked,
+                                  onChanged: (bool value) {
+                                    setState(() {
+                                      company.checked = value;
+                                      company.certs.add(all_certs[index]);
+                                    });
+                                  });
                             }),
                         SizedBox(height: 10),
                         RaisedButton(

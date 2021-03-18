@@ -26,8 +26,6 @@ class _BillsState extends State<Bills> {
                       leading: Image.asset('./assets/animal.png'),
                       title: Text(bill['name']),
                       onTap: () {
-                        print("WOOOOOOOHOOOOOOO!!!");
-                        print(bill.runtimeType);
                         Navigator.push(
                           context,
                           MaterialPageRoute(
