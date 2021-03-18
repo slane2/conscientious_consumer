@@ -111,36 +111,6 @@ class _CompanyFormState extends State<CompanyForm> {
                                 return null;
                               }
                             }),
-                        // CheckboxListTile(
-                        //     title: const Text('Leaping Bunny'),
-                        //     secondary: Image.asset('./assets/animal.png'),
-                        //     value: company.checked,
-                        //     onChanged: (bool value) {
-                        //       setState(() {
-                        //         company.checked = value;
-                        //         company.certs.add('Leaping Bunny');
-                        //       });
-                        //     }),
-                        // CheckboxListTile(
-                        //     title: const Text('Cruelty Free PETA'),
-                        //     secondary: Image.asset('./assets/animal.png'),
-                        //     value: company.checked,
-                        //     onChanged: (bool value) {
-                        //       setState(() {
-                        //         company.checked = value;
-                        //         company.certs.add('Cruelty Free PETA');
-                        //       });
-                        //     }),
-                        // CheckboxListTile(
-                        //     title: const Text('Cradle to Cradle'),
-                        //     secondary: Image.asset('./assets/planet.png'),
-                        //     value: company.checked,
-                        //     onChanged: (bool value) {
-                        //       setState(() {
-                        //         company.checked = value;
-                        //         company.certs.add('Cradle to Cradle');
-                        //       });
-                        //     }),
                         ListView.builder(
                             shrinkWrap: true,
                             itemCount: all_certs.length,
