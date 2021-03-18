@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:the_conscientious_consumer/models/company.dart';
 import 'list_views/bills.dart';
 import 'form_hub.dart';
 import 'user_form.dart';
@@ -10,6 +11,27 @@ import '../screens/forms/bill_form.dart';
 class BillScreen extends StatelessWidget {
   final AuthService _auth = AuthService();
   final QueryDocumentSnapshot bill;
+
+  List<Company> companies = [
+    Company(
+        name: 'Tom\'s of Maine',
+        description:
+            'Tom\'s of Maine is a brand name and manufacturing company of personal care products with only natural ingredients and a majority-owned subsidiary of Colgate-Palmolive since 2006.',
+        logo:
+            'https://upload.wikimedia.org/wikipedia/en/4/49/Tom%27s_of_Maine_logo_2010.png'),
+    Company(
+        name: 'Toms of Maine',
+        description:
+            'Tom\'s of Maine is a brand name and manufacturing company of personal care products with only natural ingredients and a majority-owned subsidiary of Colgate-Palmolive since 2006.',
+        logo:
+            'https://upload.wikimedia.org/wikipedia/en/4/49/Tom%27s_of_Maine_logo_2010.png'),
+    Company(
+        name: 'Tom\'s of Maine',
+        description:
+            'Tom\'s of Maine is a brand name and manufacturing company of personal care products with only natural ingredients and a majority-owned subsidiary of Colgate-Palmolive since 2006.',
+        logo:
+            'https://upload.wikimedia.org/wikipedia/en/4/49/Tom%27s_of_Maine_logo_2010.png')
+  ];
 
   BillScreen({Key key, @required this.bill}) : super(key: key);
 
@@ -62,13 +84,67 @@ class BillScreen extends StatelessWidget {
           ],
         ),
       ),
-      body: StreamBuilder(
-          stream: FirebaseFirestore.instance.collection('bills').snapshots(),
-          builder: (context, snapshot) {
-            if (snapshot.hasData) {
-              return Material(child: Center());
-            }
-          }),
+      // body: StreamBuilder(
+      //     stream: FirebaseFirestore.instance.collection('bills').snapshots(),
+      //     builder: (context, snapshot) {
+      //       if (snapshot.hasData) {
+      //         return Material(child: Center());
+      //       }
+      //     }),
+      body: Column(
+        children: <Widget>[
+          Text(
+            'Humane Cosmetics Act of 2019',
+            style: TextStyle(height: 5, fontSize: 20),
+          ),
+          Text(
+            'It will be illegal for any individual or company to conduct testing on animals for the creation of cosmetics. It will be illegal to sell any cosmetics that were developed using the process of animal testing after the date that is one year from the date of this bill passing.',
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Container(
+                  margin: EdgeInsets.all(3),
+                  child: FlatButton(
+                    onPressed: () {},
+                    color: Colors.transparent,
+                    child: Text(
+                      'Supporting Companies',
+                      style: TextStyle(height: 5, fontSize: 10),
+                    ),
+                  )),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: companies.map((company) {
+              return Container(
+                color: Colors.white,
+                padding: EdgeInsets.all(5.0),
+                child: Column(
+                  children: [
+                    Text(
+                      company.name,
+                      style: TextStyle(height: 2, fontSize: 10),
+                    ),
+                    Container(
+                        child: Image.network(company.logo),
+                        height: 80.0,
+                        width: 80.0),
+                    Container(
+                        child: Image.network(
+                            'https://upload.wikimedia.org/wikipedia/commons/f/f2/Five_star_insignia.png',
+                            height: 5.0,
+                            width: 100.0)),
+                  ],
+                ),
+              );
+            }).toList(),
+          ),
+        ],
+      ),
     );
   }
 }
