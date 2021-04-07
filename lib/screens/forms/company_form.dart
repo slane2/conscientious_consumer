@@ -128,7 +128,7 @@ class _CompanyFormState extends State<CompanyForm> {
                                   });
                             }),
                         SizedBox(height: 10),
-                        RaisedButton(
+                        ElevatedButton(
                             onPressed: () async {
                               if (formKey.currentState.validate()) {
                                 formKey.currentState.save();

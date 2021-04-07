@@ -1,7 +1,8 @@
 // import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import '../bill_screen.dart';
+import 'package:the_conscientious_consumer/screens/details/certification_screen.dart';
+import '../details/bill_screen.dart';
 import '../../widgets/star_rating.dart';
 
 class Certifications extends StatefulWidget {
@@ -30,7 +31,7 @@ class _CertificationsState extends State<Certifications> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => Certifications(),
+                            builder: (context) => CertificationScreen(),
                           ),
                         );
                       },

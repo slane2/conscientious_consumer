@@ -1,7 +1,8 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import '../bill_screen.dart';
+import '../details/bill_screen.dart';
+import '../../services/database.dart';
 
 class Bills extends StatefulWidget {
   @override

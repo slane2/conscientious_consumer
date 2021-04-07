@@ -1,16 +1,19 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:the_conscientious_consumer/models/company.dart';
-import 'list_views/bills.dart';
-import 'form_hub.dart';
-import 'user_form.dart';
-import '../services/auth.dart';
-import '../models/bill.dart';
-import '../screens/forms/bill_form.dart';
+import 'package:the_conscientious_consumer/screens/home/home.dart';
+import 'package:the_conscientious_consumer/screens/list_views/bills.dart';
+import '../list_views/Certifications.dart';
+import '../form_hub.dart';
+import '../user_form.dart';
+import '../../services/auth.dart';
+import '../../models/Certification.dart';
+import '../forms/Certification_form.dart';
+import '../../widgets/star_rating.dart';
 
-class BillScreen extends StatelessWidget {
+class CertificationScreen extends StatelessWidget {
   final AuthService _auth = AuthService();
-  final QueryDocumentSnapshot bill;
+  final QueryDocumentSnapshot certification;
 
   List<Company> companies = [
     Company(
@@ -33,12 +36,13 @@ class BillScreen extends StatelessWidget {
             'https://upload.wikimedia.org/wikipedia/en/4/49/Tom%27s_of_Maine_logo_2010.png')
   ];
 
-  BillScreen({Key key, @required this.bill}) : super(key: key);
+  CertificationScreen({Key key, @required this.certification})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Bills"), actions: <Widget>[
+      appBar: AppBar(title: Text("Certifications"), actions: <Widget>[
         FlatButton.icon(
           icon: Icon(Icons.person),
           label: Text('Logout'),
@@ -58,12 +62,29 @@ class BillScreen extends StatelessWidget {
               ),
             ),
             new ListTile(
+                title: Text('Home'),
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      new MaterialPageRoute(
+                          builder: (BuildContext context) => new Home()));
+                }),
+            new ListTile(
                 title: Text('Submit Data'),
                 onTap: () {
                   Navigator.push(
                       context,
                       new MaterialPageRoute(
                           builder: (BuildContext context) => new FormHub()));
+                }),
+            new ListTile(
+                title: Text('Certifications'),
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      new MaterialPageRoute(
+                          builder: (BuildContext context) =>
+                              new Certifications()));
                 }),
             new ListTile(
                 title: Text('Bills'),
@@ -85,7 +106,7 @@ class BillScreen extends StatelessWidget {
         ),
       ),
       // body: StreamBuilder(
-      //     stream: FirebaseFirestore.instance.collection('bills').snapshots(),
+      //     stream: FirebaseFirestore.instance.collection('Certifications').snapshots(),
       //     builder: (context, snapshot) {
       //       if (snapshot.hasData) {
       //         return Material(child: Center());
@@ -93,13 +114,21 @@ class BillScreen extends StatelessWidget {
       //     }),
       body: Column(
         children: <Widget>[
-          Text(
-            'Humane Cosmetics Act of 2019',
-            style: TextStyle(height: 5, fontSize: 20),
+          Row(
+            children: [
+              Text(
+                'Leaping Bunny',
+                style: TextStyle(height: 5, fontSize: 20),
+              ),
+              Container(
+                child: StarRating(value: 5),
+              ),
+            ],
           ),
           Text(
-            'It will be illegal for any individual or company to conduct testing on animals for the creation of cosmetics. It will be illegal to sell any cosmetics that were developed using the process of animal testing after the date that is one year from the date of this bill passing.',
+            'Since 1996, the Leaping Bunny Program, operated by the Coalition for Consumer Information on Cosmetics in the US and Canada, has been connecting compassionate consumers to cruelty-free companies under its Corporate Standard of Compassion for Animals. Companies must pledge to end animal testing at all stages of product development in addition to recommitting to the program annually and being open to third party audits.',
           ),
+          Image.asset('./assets/leapingbunny.png'),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -110,7 +139,7 @@ class BillScreen extends StatelessWidget {
                     onPressed: () {},
                     color: Colors.transparent,
                     child: Text(
-                      'Supporting Companies',
+                      'Certified Companies',
                       style: TextStyle(height: 5, fontSize: 10),
                     ),
                   )),
