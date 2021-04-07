@@ -31,7 +31,7 @@ class _CertificationsState extends State<Certifications> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => CertificationScreen(),
+                            builder: (context) => CertificationScreen(certification: null,),
                           ),
                         );
                       },

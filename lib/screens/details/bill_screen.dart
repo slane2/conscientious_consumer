@@ -108,7 +108,6 @@ class BillScreen extends StatelessWidget {
                   margin: EdgeInsets.all(3),
                   child: TextButton(
                     onPressed: () {},
-                    color: Colors.transparent,
                     child: Text(
                       'Supporting Companies',
                       style: TextStyle(height: 5, fontSize: 10),
