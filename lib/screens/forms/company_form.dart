@@ -378,6 +378,17 @@ class _CompanyFormState extends State<CompanyForm> {
                         SizedBox(height: 10),
                         ElevatedButton(
                             onPressed: () async {
+                              company.rating = 0;
+                              if (company.certs.length > 0 and company.certs.length < 2)
+                                certification.rating = 1;
+                              if (company.certs.length > 1 and company.certs.length < 3)
+                                certification.rating = 2;
+                              if (company.certs.length > 2 and company.certs.length < 4)
+                                certification.rating = 3;
+                              if (company.certs.length > 3 and company.certs.length < 5)
+                                certification.rating = 4;
+                              if (company.certs.length >= 5)
+                                certification.rating = 5;
                               if (formKey.currentState.validate()) {
                                 formKey.currentState.save();
                                 await FirebaseFirestore.instance
