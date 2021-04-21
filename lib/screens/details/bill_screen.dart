@@ -10,7 +10,7 @@ import '../forms/bill_form.dart';
 
 class BillScreen extends StatelessWidget {
   final AuthService _auth = AuthService();
-  final QueryDocumentSnapshot bill;
+  final bill;
 
   List<Company> companies = [
     Company(
@@ -94,7 +94,7 @@ class BillScreen extends StatelessWidget {
       body: Column(
         children: <Widget>[
           Text(
-            'Humane Cosmetics Act of 2019',
+            bill['name'],
             style: TextStyle(height: 5, fontSize: 20),
           ),
           Text(

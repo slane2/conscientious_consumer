@@ -11,6 +11,12 @@ class Bills extends StatefulWidget {
 
 class _BillsState extends State<Bills> {
   @override
+  void initState() {
+    super.initState();
+    setState(() {});
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Ethical Manufacturing Bills')),
