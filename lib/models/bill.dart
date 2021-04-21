@@ -29,6 +29,22 @@ class Bill {
     name = bill_name;
   }
 
+  void addDescription(String bill_description) {
+    description = bill_description;
+  }
+
+  void addSourceName(String bill_source_name) {
+    source_name = bill_source_name;
+  }
+
+  void addYear(String bill_year) {
+    year = bill_year;
+  }
+
+  void addPassed(String bill_passed) {
+    passed = bill_passed;
+  }
+
   String toString() {
     return 'Name: $name  ||  Description: $description - $source_name';
   }
