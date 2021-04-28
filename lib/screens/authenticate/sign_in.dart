@@ -57,8 +57,7 @@ class _SignInState extends State<SignIn> {
           setState(() => password = val);
                     }),
                 SizedBox(height: 20.0),
-                RaisedButton(
-                  color: Colors.tealAccent[400],
+                ElevatedButton(
                   child: Text(
                     'Sign In',
                     style: TextStyle(color: Colors.teal[800]),

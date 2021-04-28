@@ -13,7 +13,7 @@ import '../../widgets/star_rating.dart';
 
 class CertificationScreen extends StatelessWidget {
   final AuthService _auth = AuthService();
-  final QueryDocumentSnapshot certification;
+  final certification;
 
   List<Company> companies = [
     Company(
@@ -43,7 +43,7 @@ class CertificationScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("Certifications"), actions: <Widget>[
-        FlatButton.icon(
+        TextButton.icon(
           icon: Icon(Icons.person),
           label: Text('Logout'),
           onPressed: () async {
@@ -117,7 +117,7 @@ class CertificationScreen extends StatelessWidget {
           Row(
             children: [
               Text(
-                'Leaping Bunny',
+                ['name'],
                 style: TextStyle(height: 5, fontSize: 20),
               ),
               Container(

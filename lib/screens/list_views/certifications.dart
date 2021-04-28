@@ -16,7 +16,9 @@ class _CertificationsState extends State<Certifications> {
     return Scaffold(
       appBar: AppBar(title: Text('Ethical Certifications')),
       body: StreamBuilder(
-          stream: FirebaseFirestore.instance.collection('certifications').snapshots(),
+          stream: FirebaseFirestore.instance
+              .collection('certifications')
+              .snapshots(),
           builder: (content, snapshot) {
             if (snapshot.hasData) {
               return Material(
@@ -31,7 +33,9 @@ class _CertificationsState extends State<Certifications> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => CertificationScreen(certification: null,),
+                            builder: (context) => CertificationScreen(
+                              certification: certification,
+                            ),
                           ),
                         );
                       },

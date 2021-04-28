@@ -25,7 +25,7 @@ class _RegisterState extends State<Register> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(elevation: 0.0, title: Text('Sign Up'), actions: <Widget>[
-        FlatButton.icon(
+        TextButton.icon(
             icon: Icon(Icons.person),
             label: Text('Sign In'),
             onPressed: () {
@@ -55,8 +55,7 @@ class _RegisterState extends State<Register> {
                     setState(() => password = val);
                   }),
               SizedBox(height: 20.0),
-              RaisedButton(
-                  color: Colors.tealAccent[400],
+              ElevatedButton(
                   child: Text(
                     'Sign Up',
                     style: TextStyle(color: Colors.teal[800]),
