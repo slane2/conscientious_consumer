@@ -117,7 +117,7 @@ class CertificationScreen extends StatelessWidget {
           Row(
             children: [
               Text(
-                ['name'],
+                certification['name'],
                 style: TextStyle(height: 5, fontSize: 20),
               ),
               Container(
@@ -126,7 +126,7 @@ class CertificationScreen extends StatelessWidget {
             ],
           ),
           Text(
-            'Since 1996, the Leaping Bunny Program, operated by the Coalition for Consumer Information on Cosmetics in the US and Canada, has been connecting compassionate consumers to cruelty-free companies under its Corporate Standard of Compassion for Animals. Companies must pledge to end animal testing at all stages of product development in addition to recommitting to the program annually and being open to third party audits.',
+            certification['description'],
           ),
           Image.asset('./assets/leapingbunny.png'),
           Row(

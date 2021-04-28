@@ -98,7 +98,7 @@ class BillScreen extends StatelessWidget {
             style: TextStyle(height: 5, fontSize: 20),
           ),
           Text(
-            'It will be illegal for any individual or company to conduct testing on animals for the creation of cosmetics. It will be illegal to sell any cosmetics that were developed using the process of animal testing after the date that is one year from the date of this bill passing.',
+            bill['description'],
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
