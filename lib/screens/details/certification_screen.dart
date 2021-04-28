@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:the_conscientious_consumer/models/company.dart';
 import 'package:the_conscientious_consumer/screens/home/home.dart';
@@ -7,8 +6,6 @@ import '../list_views/Certifications.dart';
 import '../form_hub.dart';
 import '../user_form.dart';
 import '../../services/auth.dart';
-import '../../models/Certification.dart';
-import '../forms/Certification_form.dart';
 import '../../widgets/star_rating.dart';
 
 class CertificationScreen extends StatelessWidget {

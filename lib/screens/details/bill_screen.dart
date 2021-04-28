@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:the_conscientious_consumer/models/company.dart';
+import 'package:the_conscientious_consumer/screens/list_views/certifications.dart';
+import 'package:the_conscientious_consumer/screens/list_views/companies.dart';
 import '../list_views/bills.dart';
 import '../form_hub.dart';
 import '../user_form.dart';
@@ -51,36 +53,53 @@ class BillScreen extends StatelessWidget {
         child: ListView(
           children: <Widget>[
             new UserAccountsDrawerHeader(
-              accountName: new Text('Shayla Lane'),
-              accountEmail: new Text('test@test.com'),
-              currentAccountPicture: new CircleAvatar(
-                backgroundImage: new AssetImage('assets/redhair.jpg'),
-              ),
+        accountName: new Text('Shayla Lane'),
+        accountEmail: new Text('test@test.com'),
+        currentAccountPicture: new CircleAvatar(
+          backgroundImage: new AssetImage('assets/redhair.jpg'),
+        ),
             ),
             new ListTile(
-                title: Text('Submit Data'),
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      new MaterialPageRoute(
-                          builder: (BuildContext context) => new FormHub()));
-                }),
+          title: Text('Submit Data'),
+          onTap: () {
+        Navigator.push(
+            context,
+            new MaterialPageRoute(
+                builder: (BuildContext context) => new FormHub()));
+          }),
             new ListTile(
-                title: Text('Bills'),
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      new MaterialPageRoute(
-                          builder: (BuildContext context) => new Bills()));
-                }),
+          title: Text('Companies'),
+          onTap: () {
+        Navigator.push(
+            context,
+            new MaterialPageRoute(
+                builder: (BuildContext context) => new Companies()));
+          }),
             new ListTile(
-                title: Text('Login'),
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      new MaterialPageRoute(
-                          builder: (BuildContext context) => new UserForm()));
-                }),
+          title: Text('Bills'),
+          onTap: () {
+        Navigator.push(
+            context,
+            new MaterialPageRoute(
+                builder: (BuildContext context) => new Bills()));
+          }),
+            new ListTile(
+          title: Text('Certifications'),
+          onTap: () {
+        Navigator.push(
+            context,
+            new MaterialPageRoute(
+                builder: (BuildContext context) =>
+                    new Certifications()));
+          }),
+            new ListTile(
+          title: Text('Login'),
+          onTap: () {
+        Navigator.push(
+            context,
+            new MaterialPageRoute(
+                builder: (BuildContext context) => new UserForm()));
+          }),
           ],
         ),
       ),
