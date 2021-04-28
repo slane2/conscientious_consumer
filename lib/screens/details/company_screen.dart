@@ -66,7 +66,7 @@ class CompanyScreen extends StatelessWidget {
                 builder: (BuildContext context) => new FormHub()));
           }),
             new ListTile(
-          title: Text('Companies'),
+          title: Text(company['name']),
           onTap: () {
         Navigator.push(
             context,
@@ -103,10 +103,7 @@ class CompanyScreen extends StatelessWidget {
       ),
       body: Column(
         children: <Widget>[
-          Text(
-            company['name'],
-            style: TextStyle(height: 5, fontSize: 20),
-          ),
+          Image.network(company['logo']),
           Text(
             company['description'],
           ),
