@@ -44,7 +44,10 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar:
-          AppBar(title: Text("The Conscientious Consumer"), actions: <Widget>[
+          AppBar(title: Text(
+            "The Conscientious Consumer",
+            style: TextStyle(fontSize: 13)
+          ), actions: <Widget>[
         TextButton.icon(
           icon: Icon(Icons.person),
           label: Text('Logout'),
