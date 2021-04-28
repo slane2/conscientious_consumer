@@ -1,7 +1,7 @@
-// import 'dart:io';
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import '../details/bill_screen.dart';
+import '../details/company_screen.dart';
 import '../../widgets/star_rating.dart';
 
 class Companies extends StatefulWidget {
@@ -10,6 +10,12 @@ class Companies extends StatefulWidget {
 }
 
 class _CompaniesState extends State<Companies> {
+  @override
+  void initState() {
+    super.initState();
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +36,7 @@ class _CompaniesState extends State<Companies> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => Companies(),
+                            builder: (context) => CompanyScreen(company: company),
                           ),
                         );
                       },

@@ -105,13 +105,6 @@ class CertificationScreen extends StatelessWidget {
           ],
         ),
       ),
-      // body: StreamBuilder(
-      //     stream: FirebaseFirestore.instance.collection('Certifications').snapshots(),
-      //     builder: (context, snapshot) {
-      //       if (snapshot.hasData) {
-      //         return Material(child: Center());
-      //       }
-      //     }),
       body: Column(
         children: <Widget>[
           Row(

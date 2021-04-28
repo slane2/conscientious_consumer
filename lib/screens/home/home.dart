@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:the_conscientious_consumer/models/company.dart';
+import 'package:the_conscientious_consumer/screens/list_views/companies.dart';
 import '../user_form.dart';
 import '../form_hub.dart';
 import '../list_views/bills.dart';
@@ -46,7 +47,7 @@ class _HomeState extends State<Home> {
       appBar:
           AppBar(title: Text(
             "The Conscientious Consumer",
-            style: TextStyle(fontSize: 13)
+            style: TextStyle(fontSize: 17)
           ), actions: <Widget>[
         TextButton.icon(
           icon: Icon(Icons.person),
@@ -73,6 +74,14 @@ class _HomeState extends State<Home> {
             context,
             new MaterialPageRoute(
                 builder: (BuildContext context) => new FormHub()));
+          }),
+            new ListTile(
+          title: Text('Companies'),
+          onTap: () {
+        Navigator.push(
+            context,
+            new MaterialPageRoute(
+                builder: (BuildContext context) => new Companies()));
           }),
             new ListTile(
           title: Text('Bills'),
@@ -112,7 +121,7 @@ class _HomeState extends State<Home> {
                             border: Border.all(
                           color: Colors.blueAccent[700],
                         )),
-                        padding: EdgeInsets.fromLTRB(5.0, 8.0, 320, 15.0),
+                        padding: EdgeInsets.fromLTRB(5.0, 8.0, 373.2, 15.0),
                         child: Icon(
                           Icons.search,
                           color: Colors.blueAccent[700],
